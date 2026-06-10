@@ -16,7 +16,7 @@ Ground::~Ground()
 
 void Ground::Initialize()
 {
-	hModel_ = Model::Load("Assets/Ground.fbx");
+	hModel_ = Model::Load("Ground.fbx");
 }
 
 void Ground::Update()

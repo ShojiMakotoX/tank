@@ -14,7 +14,7 @@ Tank::~Tank()
 
 void Tank::Initialize()
 {
-	hModel_ = Model::Load("Assets/TankBody.fbx");
+	hModel_ = Model::Load("TankBody.fbx");
 	assert(hModel_ >= 0);
 }
 
