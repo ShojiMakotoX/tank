@@ -21,6 +21,7 @@ public:
 	//開放
 	void Release() override;
 private:
-	int hModel_;
+	int hModel_;//タンクモデルのハンドル
+	int camType_;//カメラの種類
 };
 
