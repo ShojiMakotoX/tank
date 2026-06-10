@@ -10,6 +10,8 @@ Transform::Transform(): pParent_(nullptr)
 	matTranslate_ = XMMatrixIdentity();
 	matRotate_ = XMMatrixIdentity();
 	matScale_ = XMMatrixIdentity();
+	isUseWorldMatrix_ = false;
+	matWorld_ = XMMatrixIdentity();
 }
 
 
@@ -33,14 +35,36 @@ void Transform::Calclation()
 	matScale_ = XMMatrixScaling(scale_.x, scale_.y, scale_.z);
 }
 
+void Transform::SetWorldMatrix(XMMATRIX matrix)
+{
+	isUseWorldMatrix_ = true;
+	matWorld_ = matrix;
+}
+
+void Transform::UseTransformParameter()
+{
+	isUseWorldMatrix_ = false;
+}
+
 XMMATRIX Transform::GetWorldMatrix() 
 {
-	Calclation();
-	if (pParent_)
+	XMMATRIX world;
+
+	if (isUseWorldMatrix_)
 	{
-		return  matScale_ * matRotate_ * matTranslate_ * pParent_->GetWorldMatrix();
+		world = matWorld_;
+	}
+	else
+	{
+		Calclation();
+		world = matScale_ * matRotate_ * matTranslate_;
 	}
 
-	return  matScale_ * matRotate_ * matTranslate_;
+	if (pParent_)
+	{
+		return  world * pParent_->GetWorldMatrix();
+	}
+
+	return  world;
 }
 

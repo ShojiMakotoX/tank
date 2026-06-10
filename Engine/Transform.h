@@ -18,6 +18,12 @@ public:
 	XMFLOAT3 scale_;		//拡大率
 	Transform * pParent_;	//親オブジェクトの情報
 
+	//自作したワールド行列を使うかどうか
+	bool isUseWorldMatrix_;
+
+	//自作ワールド行列
+	XMMATRIX matWorld_;
+
 	//コンストラクタ
 	Transform();
 
@@ -28,6 +34,16 @@ public:
 	//引数：なし
 	//戻値：なし
 	void Calclation();
+
+	//ワールド行列を直接設定
+	//引数：設定するワールド行列
+	//戻値：なし
+	void SetWorldMatrix(XMMATRIX matrix);
+
+	//position_、rotate_、scale_ から行列を作る通常モードに戻す
+	//引数：なし
+	//戻値：なし
+	void UseTransformParameter();
 
 	//ワールド行列を取得
 	//引数：なし

@@ -147,6 +147,8 @@ public:
 	void SetRotateZ(float z) { SetRotate(transform_.rotate_.x, transform_.rotate_.y, z); }
 	void SetScale(XMFLOAT3 scale) { transform_.scale_ = scale; }
 	void SetScale(float x, float y, float z) { SetScale(XMFLOAT3(x, y, z)); }
+	void SetWorldMatrix(XMMATRIX matrix) { transform_.SetWorldMatrix(matrix); }
+	void UseTransformParameter() { transform_.UseTransformParameter(); }
 
 
 private:
