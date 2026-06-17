@@ -23,5 +23,7 @@ public:
 private:
 	int hModel_;//タンクモデルのハンドル
 	int camType_;//カメラの種類
+	void SetFixedCam();//固定カメラの処理
+	
 };
 
