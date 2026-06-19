@@ -18,6 +18,8 @@ void Enemy::Initialize()
 
 void Enemy::Update()
 {
+
+
 	//レイキャストして、浮いてたら地面まで落とす
 	RayCastData data;
 	data.start = transform_.position_;

@@ -18,17 +18,21 @@ void Bullet::Initialize()
 void Bullet::Update()
 {
 	//transform_.position_ = transform_.position_ + move_;
-	XMVECTOR vPos = XMLoadFloat3(&transform_.position_);
-	XMVECTOR vMove = XMLoadFloat3(&move_);
-	vPos = vPos + vMove;
-	XMStoreFloat3(&transform_.position_, vPos);
+	XMVECTOR vPos = XMLoadFloat3(&transform_.position_);//ロード、読み込み
+	move_.y -= 0.005f;
+	XMVECTOR vMove = XMLoadFloat3(&move_);//
+
+	vPos = vPos + vMove;//弾の進行方向に移動する
+
+	XMStoreFloat3(&transform_.position_, vPos);//ストア：書き込み
 	/*transform_.position_.x += move_.x;
 	transform_.position_.y += move_.y;
 	transform_.position_.z += move_.z;*/
 
-	if (transform_.position_.z > 50.0f || transform_.position_.z < -50.0f || transform_.position_.x > 50.0f || transform_.position_.x < -50.0f)
+	/*if (transform_.position_.z > 50.0f || transform_.position_.z < -50.0f || transform_.position_.x > 50.0f || transform_.position_.x < -50.0f)*/
+	if(transform_.position_.y < -10.0f)
 	{
-		KillMe();
+		KillMe();//弾がある程度遠くへ行ったら消す
 	}
 }
 
