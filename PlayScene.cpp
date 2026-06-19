@@ -12,7 +12,7 @@ void PlayScene::Initialize()
 {
 	Instantiate<Ground>(this);//親をplaysceneにして地面を生成する
 	Instantiate<Tank>(this);
-	Instantiate<TankHead>(this);
+	//Instantiate<TankHead>(this);
 }
 
 void PlayScene::Update()
