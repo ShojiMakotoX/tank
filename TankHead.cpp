@@ -33,10 +33,9 @@ void TankHead::Update()
 
 	if (Input::IsKeyDown(DIK_SPACE))
 	{
+		const float BULLET_SPEED = 0.2f;//弾のスピードを設定する
 		XMFLOAT3 cannonTop = Model::GetBonePosition(hModel_, "Top");//タンクヘッドのtop XMFLOAT3で返っている
 		XMFLOAT3 cannonRoot = Model::GetBonePosition(hModel_, "Root");//タンクヘッドのtop XMFLOAT3で返っている
-
-		const float BULLET_SPEED = 0.2f;//弾のスピードを設定する
 		//XMVECTORに２つとも変換する
 		XMVECTOR vTop = XMLoadFloat3(&cannonTop);
 		XMVECTOR vRoot = XMLoadFloat3(&cannonRoot);
@@ -49,8 +48,9 @@ void TankHead::Update()
 		XMFLOAT3 move;
 		XMStoreFloat3(&move, vMove);
 
-		Bullet* pBullet = Instantiate<Bullet>(this);
+		Bullet* pBullet = Instantiate<Bullet>(GetParent()->GetParent());
 		pBullet->SetMoveVector(move);
+		pBullet->SetPosition(cannonTop);
 	}
 
 }

@@ -25,7 +25,16 @@ void Bullet::Update()
 	/*transform_.position_.x += move_.x;
 	transform_.position_.y += move_.y;
 	transform_.position_.z += move_.z;*/
+
+	if (transform_.position_.z > 50.0f || transform_.position_.z < -50.0f || transform_.position_.x > 50.0f || transform_.position_.x < -50.0f)
+	{
+		KillMe();
+	}
 }
+
+//弾の弾道を重力つける
+//敵を配置（敵もレイキャストしてx,z座標ランダムで
+//当たり判定（コライダーの配置）
 
 void Bullet::Draw()
 {
