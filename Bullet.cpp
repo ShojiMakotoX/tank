@@ -11,7 +11,7 @@ Bullet::Bullet(GameObject* parent)
 
 void Bullet::Initialize()
 {
-	Model::Load("Bullet.fbx");
+	hModel_ = Model::Load("Bullet.fbx");
 	assert(hModel_ >= 0);
 }
 
