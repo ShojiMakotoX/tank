@@ -16,8 +16,11 @@ public:
 	void Draw() override;
 	//開放
 	void Release() override;
+
+	void OnCollision(GameObject* pTarget);
 private:
 	int hModel_;//タンクの弾モデルのハンドル
+	int enemyPos_;
 
 };
 

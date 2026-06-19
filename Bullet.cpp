@@ -20,7 +20,7 @@ void Bullet::Update()
 	//transform_.position_ = transform_.position_ + move_;
 	XMVECTOR vPos = XMLoadFloat3(&transform_.position_);//ロード、読み込み
 	move_.y -= 0.005f;
-	XMVECTOR vMove = XMLoadFloat3(&move_);//
+	XMVECTOR vMove = XMLoadFloat3(&move_);//ロード、読み込み
 
 	vPos = vPos + vMove;//弾の進行方向に移動する
 
@@ -36,8 +36,8 @@ void Bullet::Update()
 	}
 }
 
-//弾の弾道を重力つける
-//敵を配置（敵もレイキャストしてx,z座標ランダムで
+
+//敵を配置（敵もレイキャストしてx,z座標ランダムで）、まずは1体配置したい
 //当たり判定（コライダーの配置）
 
 void Bullet::Draw()

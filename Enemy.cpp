@@ -2,6 +2,7 @@
 #include "Engine\\Model.h"
 #include "Engine\\Input.h"
 #include "Ground.h"
+#include "Engine\\BoxCollider.h"
 #include <assert.h>
 
 Enemy::Enemy(GameObject* parent)
@@ -12,14 +13,21 @@ Enemy::Enemy(GameObject* parent)
 
 void Enemy::Initialize()
 {
+
 	hModel_ = Model::Load("Enemy.fbx");
+
+	Model::SetAnimFrame(hModel_, 1, 120, 1.0f);
 	assert(hModel_ >= 0);
+	float x = (rand() / RAND_MAX) * 5.0f - 10.0f;
+	float z = (rand() / RAND_MAX) * 5.0f - 10.0f;
+	transform_.position_.x = x;
+	transform_.position_.z = z;
+	BoxCollider* collider = new BoxCollider({ 0,0,0 }, { 1.0f,2.0f,1.0f });//コライダーを作る
+	AddCollider(collider);//コライダーをEnemyに追加
 }
 
 void Enemy::Update()
 {
-
-
 	//レイキャストして、浮いてたら地面まで落とす
 	RayCastData data;
 	data.start = transform_.position_;
@@ -45,4 +53,12 @@ void Enemy::Draw()
 
 void Enemy::Release()
 {
+}
+
+void Enemy::OnCollision(GameObject* pTarget)
+{
+	if (pTarget->GetObjectName() == "Bullet")
+	{
+		KillMe();//自分を消す
+	}
 }
