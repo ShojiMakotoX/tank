@@ -48,6 +48,7 @@ void TankHead::Update()
 		XMFLOAT3 move;
 		XMStoreFloat3(&move, vMove);
 
+		//弾を生成
 		Bullet* pBullet = Instantiate<Bullet>(GetParent()->GetParent());
 		pBullet->SetMoveVector(move);
 		pBullet->SetPosition(cannonTop);
