@@ -1,13 +1,12 @@
 #pragma once
 #include "Engine\\GameObject.h"
-class Enemy :
+
+class EnemyManager :
     public GameObject
 {
-public:
-	//コンストラクタ
-	Enemy(GameObject* parent);
+	EnemyManager(GameObject* parent);
 	//デストラクタ
-	~Enemy() {}//インライン定義
+	~EnemyManager() {}//インライン定義
 	//初期化
 	void Initialize() override;
 	//更新
@@ -16,12 +15,9 @@ public:
 	void Draw() override;
 	//開放
 	void Release() override;
-
-	void OnCollision(GameObject* pTarget);
-
 private:
 	int hModel_;//タンクの弾モデルのハンドル
 	int enemyPos_;
-
+	
 };
 
