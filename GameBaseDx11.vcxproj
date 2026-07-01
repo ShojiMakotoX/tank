@@ -166,6 +166,7 @@
     <ClCompile Include="Tank.cpp" />
     <ClCompile Include="TankHead.cpp" />
     <ClCompile Include="TestScene.cpp" />
+    <ClCompile Include="Weeds.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Bullet.h" />
@@ -199,6 +200,7 @@
     <ClInclude Include="Tank.h" />
     <ClInclude Include="TankHead.h" />
     <ClInclude Include="TestScene.h" />
+    <ClInclude Include="Weeds.h" />
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="Assets\Shader\BillBoard.hlsl">

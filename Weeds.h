@@ -1,16 +1,13 @@
 #pragma once
 #include "Engine\\GameObject.h"
-#include <vector>
-#include "Enemy.h"
-#include "Weeds.h"
-
-class EnemyManager :
+class Weeds :
     public GameObject
 {
 public:
-	EnemyManager(GameObject* parent);
+	//コンストラクタ
+	Weeds(GameObject* parent);
 	//デストラクタ
-	~EnemyManager() {}//インライン定義
+	~Weeds() {}//インライン定義
 	//初期化
 	void Initialize() override;
 	//更新
@@ -19,11 +16,12 @@ public:
 	void Draw() override;
 	//開放
 	void Release() override;
-	std::vector<Enemy*>enemies_;//配列を作る
-	std::vector<Weeds*>weeds_;
+
+	void OnCollision(GameObject* pTarget);
+
 private:
 	int hModel_;//タンクの弾モデルのハンドル
 	int enemyPos_;
-	
+
 };
 

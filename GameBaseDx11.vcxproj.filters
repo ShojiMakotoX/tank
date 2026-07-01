@@ -27,6 +27,12 @@
     <Filter Include="Scene">
       <UniqueIdentifier>{3ad9a512-2df0-496e-b43f-0e261ffbce67}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Scene\Enemy">
+      <UniqueIdentifier>{ab879d25-aced-46f0-a730-eaa63d798523}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scene\Player">
+      <UniqueIdentifier>{a8214ba7-be42-4f9c-8168-359d1ab10ca9}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Engine\BoxCollider.cpp">
@@ -104,23 +110,26 @@
     <ClCompile Include="PlayScene.cpp">
       <Filter>Scene</Filter>
     </ClCompile>
-    <ClCompile Include="Tank.cpp">
-      <Filter>Scene</Filter>
-    </ClCompile>
-    <ClCompile Include="TankHead.cpp">
-      <Filter>Scene</Filter>
-    </ClCompile>
     <ClCompile Include="TestScene.cpp">
       <Filter>Scene</Filter>
     </ClCompile>
-    <ClCompile Include="Bullet.cpp">
-      <Filter>Scene</Filter>
-    </ClCompile>
     <ClCompile Include="Enemy.cpp">
-      <Filter>Scene</Filter>
+      <Filter>Scene\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="Weeds.cpp">
+      <Filter>Scene\Enemy</Filter>
     </ClCompile>
     <ClCompile Include="EnemyManager.cpp">
-      <Filter>Scene</Filter>
+      <Filter>Scene\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="Tank.cpp">
+      <Filter>Scene\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="TankHead.cpp">
+      <Filter>Scene\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="Bullet.cpp">
+      <Filter>Scene\Player</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -199,23 +208,26 @@
     <ClInclude Include="PlayScene.h">
       <Filter>Scene</Filter>
     </ClInclude>
-    <ClInclude Include="Tank.h">
-      <Filter>Scene</Filter>
-    </ClInclude>
-    <ClInclude Include="TankHead.h">
-      <Filter>Scene</Filter>
-    </ClInclude>
     <ClInclude Include="TestScene.h">
       <Filter>Scene</Filter>
     </ClInclude>
-    <ClInclude Include="Bullet.h">
-      <Filter>Scene</Filter>
-    </ClInclude>
     <ClInclude Include="Enemy.h">
-      <Filter>Scene</Filter>
+      <Filter>Scene\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="Weeds.h">
+      <Filter>Scene\Enemy</Filter>
     </ClInclude>
     <ClInclude Include="EnemyManager.h">
-      <Filter>Scene</Filter>
+      <Filter>Scene\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="Tank.h">
+      <Filter>Scene\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="TankHead.h">
+      <Filter>Scene\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="Bullet.h">
+      <Filter>Scene\Player</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

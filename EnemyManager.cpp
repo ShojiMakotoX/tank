@@ -1,6 +1,7 @@
 #include "EnemyManager.h"
 #include "Engine\\Model.h"
 #include "Enemy.h"
+#include "Weeds.h"
 
 EnemyManager::EnemyManager(GameObject* parent)
 	:GameObject(parent,"EnemyManager"),hModel_(-1)
@@ -12,6 +13,7 @@ EnemyManager::EnemyManager(GameObject* parent)
 namespace
 {
 	int ENEMY_SPWAN_MAX = 8;//敵をスポーンさせる数（数字をいじれば変更も可能）
+	int WEED_SPAWN_MAX = 5;
 }
 
 void EnemyManager::Initialize()
@@ -21,6 +23,12 @@ void EnemyManager::Initialize()
 		Enemy* e = Instantiate<Enemy>(this);
 		enemies_.push_back(e);
 	}
+	for (int c = 0;c < WEED_SPAWN_MAX;c++)
+	{
+		Weeds* w = Instantiate<Weeds>(this);
+		weeds_.push_back(w);
+	}
+	
 	
 }
 
