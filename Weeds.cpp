@@ -18,7 +18,7 @@ void Weeds::Initialize()
 	float z = ((float)rand() / RAND_MAX) * 35.0f - 10.0f;
 	transform_.position_.x = x;
 	transform_.position_.z = z;
-	SphereCollider* collider = new SphereCollider({ 0,0,0 }, 0.55f);//コライダーを作る
+	SphereCollider* collider = new SphereCollider({ 0,0,0 }, 0.6f);//コライダーを作る
 	AddCollider(collider);//コライダーをEnemyに追加
 }
 
