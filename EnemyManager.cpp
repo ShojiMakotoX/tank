@@ -11,7 +11,7 @@ EnemyManager::EnemyManager(GameObject* parent)
 
 namespace
 {
-	int ENEMY_SPWAN_MAX = 5;//敵をスポーンさせる数（数字をいじれば変更も可能）
+	int ENEMY_SPWAN_MAX = 8;//敵をスポーンさせる数（数字をいじれば変更も可能）
 }
 
 void EnemyManager::Initialize()
