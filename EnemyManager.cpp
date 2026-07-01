@@ -11,7 +11,6 @@ EnemyManager::EnemyManager(GameObject* parent)
 
 namespace
 {
-	std::vector<Enemy*>enemies_;//配列を作る
 	int ENEMY_SPWAN_MAX = 5;//敵をスポーンさせる数（数字をいじれば変更も可能）
 }
 
@@ -27,18 +26,12 @@ void EnemyManager::Initialize()
 
 void EnemyManager::Update()
 {
-	for (auto e : enemies_)
-	{
-		e->Update();
-	}
+	
 }
 
 void EnemyManager::Draw()
 {
-	for (auto e : enemies_)
-	{
-		e->Draw();
-	}
+	
 }
 
 void EnemyManager::Release()

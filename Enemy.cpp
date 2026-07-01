@@ -22,8 +22,8 @@ void Enemy::Initialize()
 	Model::SetAnimFrame(hModel_, 1, 100, 1.0f);
 	//モデルハンドル、開始フレーム、終了フレーム、アニメーション速度
 	assert(hModel_ >= 0);
-	float x = ((float)rand() / RAND_MAX) * 5.0f - 10.0f;
-	float z = ((float)rand() / RAND_MAX) * 5.0f - 10.0f;
+	float x = ((float)rand() / RAND_MAX) * 20.0f - 10.0f;
+	float z = ((float)rand() / RAND_MAX) * 20.0f - 10.0f;
 	transform_.position_.x = x;
 	transform_.position_.z = z;
 	SphereCollider* collider = new SphereCollider({ 0,0,0 },0.5f);//コライダーを作る
