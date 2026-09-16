@@ -1,6 +1,7 @@
 #include "Weeds.h"
 #include "Engine\\Model.h"
 #include "Ground.h"
+#include "EnemyManager.h"
 
 Weeds::Weeds(GameObject* parent)
 	:GameObject(parent,"Weeds"),hModel_(-1)
@@ -18,7 +19,7 @@ void Weeds::Initialize()
 	float z = ((float)rand() / RAND_MAX) * 35.0f - 10.0f;
 	transform_.position_.x = x;
 	transform_.position_.z = z;
-	SphereCollider* collider = new SphereCollider({ 0,0,0 }, 0.6f);//コライダーを作る
+	SphereCollider* collider = new SphereCollider({ 0,0,0 }, 1.0f);//コライダーを作る
 	AddCollider(collider);//コライダーをEnemyに追加
 }
 
@@ -55,6 +56,8 @@ void Weeds::OnCollision(GameObject* pTarget)
 	//衝突した相手がBulletだったら消える。
 	if (pTarget->GetObjectName() == "Bullet")
 	{
+		EnemyManager* wEnemyManager = (EnemyManager*)GetParent();
+		wEnemyManager->WeedDefeated();
 		KillMe();//自分を消す
 	}
 }

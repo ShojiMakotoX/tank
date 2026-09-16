@@ -13,17 +13,19 @@ EnemyManager::EnemyManager(GameObject* parent)
 
 namespace
 {
-	int ENEMY_SPWAN_MAX = 2;//敵をスポーンさせる数（数字をいじれば変更も可能）
-	int WEED_SPAWN_MAX = 2;
+	int ENEMY_SPWAN_MAX = 1;//敵をスポーンさせる数（数字をいじれば変更も可能）
+	int WEED_SPAWN_MAX = 1;
 }
 
 void EnemyManager::Initialize()
 {
+	enemyCount_ = ENEMY_SPWAN_MAX;
 	for (int d = 0;d < ENEMY_SPWAN_MAX;d++)
 	{
 		Enemy* e = Instantiate<Enemy>(this);
 		enemies_.push_back(e);
 	}
+	weedCount_ = WEED_SPAWN_MAX;
 	for (int c = 0;c < WEED_SPAWN_MAX;c++)
 	{
 		Weeds* w = Instantiate<Weeds>(this);
@@ -35,11 +37,12 @@ void EnemyManager::Initialize()
 
 void EnemyManager::Update()
 {
-	if (ENEMY_SPWAN_MAX == 0 && WEED_SPAWN_MAX == 0)
+	if (enemyCount_ <= 0 && weedCount_ <= 0)
 	{
 		SceneManager* pSceneManager = (SceneManager*)FindObject("SceneManager");
 		pSceneManager->ChangeScene(SCENE_ID_CLEAR);
 	}
+	
 }
 
 void EnemyManager::Draw()
@@ -49,4 +52,14 @@ void EnemyManager::Draw()
 
 void EnemyManager::Release()
 {
+}
+
+void EnemyManager::EnemyDefeated()
+{
+	enemyCount_--;
+}
+
+void EnemyManager::WeedDefeated()
+{
+	weedCount_--;
 }

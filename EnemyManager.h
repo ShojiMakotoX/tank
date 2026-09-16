@@ -21,9 +21,12 @@ public:
 	void Release() override;
 	std::vector<Enemy*>enemies_;//配列を作る
 	std::vector<Weeds*>weeds_;
+	void EnemyDefeated();
+	void WeedDefeated();
 private:
 	int hModel_;//タンクの弾モデルのハンドル
-	int enemyPos_;
+	int enemyCount_;//現在生きている敵の数
+	int weedCount_;
 	
 };
 

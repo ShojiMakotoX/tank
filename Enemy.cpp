@@ -3,6 +3,7 @@
 #include "Ground.h"
 #include "Engine\\SphereCollider.h"
 #include <assert.h>
+#include "EnemyManager.h"
 
 Enemy::Enemy(GameObject* parent)
 	:GameObject(parent, "Enemy"), hModel_(-1)
@@ -64,6 +65,8 @@ void Enemy::OnCollision(GameObject* pTarget)
 	//衝突した相手がBulletだったら消える。
 	if (pTarget->GetObjectName() == "Bullet")
 	{
+		EnemyManager* pEnemyManager = (EnemyManager*)GetParent();
+		pEnemyManager->EnemyDefeated();
 		KillMe();//自分を消す
 	}
 }
