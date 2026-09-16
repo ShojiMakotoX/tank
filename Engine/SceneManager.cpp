@@ -17,8 +17,9 @@ SceneManager::SceneManager(GameObject * parent)
 void SceneManager::Initialize()
 {
 	//Å‰‚ÌƒV[ƒ“‚ğ€”õ
-	currentSceneID_ = SCENE_ID_PLAY;
+	currentSceneID_ = SCENE_ID_TEST;
 	nextSceneID_ = currentSceneID_;
+	Instantiate<TestScene>(this);
 	Instantiate<PlayScene>(this);
 }
 
