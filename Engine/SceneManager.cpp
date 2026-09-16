@@ -2,6 +2,7 @@
 
 #include "../TestScene.h"
 #include "../PlayScene.h"
+#include "../Clear.h"
 #include "Model.h"
 #include "Image.h"
 #include "Audio.h"
@@ -42,6 +43,7 @@ void SceneManager::Update()
 		{
 		case SCENE_ID_TEST: Instantiate<TestScene>(this); break;
 		case SCENE_ID_PLAY: Instantiate<PlayScene>(this); break;
+		case SCENE_ID_CLEAR: Instantiate<Clear>(this);break;
 
 		}
 		Audio::Initialize();

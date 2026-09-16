@@ -2,6 +2,7 @@
 #include "Engine\\Model.h"
 #include "Enemy.h"
 #include "Weeds.h"
+#include "Engine\\SceneManager.h"
 
 EnemyManager::EnemyManager(GameObject* parent)
 	:GameObject(parent,"EnemyManager"),hModel_(-1)
@@ -12,8 +13,8 @@ EnemyManager::EnemyManager(GameObject* parent)
 
 namespace
 {
-	int ENEMY_SPWAN_MAX = 8;//敵をスポーンさせる数（数字をいじれば変更も可能）
-	int WEED_SPAWN_MAX = 5;
+	int ENEMY_SPWAN_MAX = 2;//敵をスポーンさせる数（数字をいじれば変更も可能）
+	int WEED_SPAWN_MAX = 2;
 }
 
 void EnemyManager::Initialize()
@@ -34,7 +35,11 @@ void EnemyManager::Initialize()
 
 void EnemyManager::Update()
 {
-	
+	if (ENEMY_SPWAN_MAX == 0 && WEED_SPAWN_MAX == 0)
+	{
+		SceneManager* pSceneManager = (SceneManager*)FindObject("SceneManager");
+		pSceneManager->ChangeScene(SCENE_ID_CLEAR);
+	}
 }
 
 void EnemyManager::Draw()

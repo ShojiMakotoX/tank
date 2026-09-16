@@ -4,13 +4,15 @@
 
 //コンストラクタ
 TestScene::TestScene(GameObject * parent)
-	: GameObject(parent, "TestScene")
+	: GameObject(parent, "TestScene"),pText_()
 {
 }
 
 //初期化
 void TestScene::Initialize()
 {
+	pText_ = new Text;
+	HRESULT result = pText_->Initialize();
 }
 
 //更新
@@ -26,7 +28,8 @@ void TestScene::Update()
 //描画
 void TestScene::Draw()
 {
-
+	pText_->Draw(550, 300, "Tank Game");
+	pText_->Draw(500, 400, "Press Space Start!");
 }
 
 //開放
