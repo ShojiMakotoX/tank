@@ -9,6 +9,8 @@ Clear::Clear(GameObject* parent)
 
 void Clear::Initialize()
 {
+	pText_ = new Text;
+	HRESULT result = pText_->Initialize();
 }
 
 void Clear::Update()

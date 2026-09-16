@@ -13,8 +13,8 @@ EnemyManager::EnemyManager(GameObject* parent)
 
 namespace
 {
-	int ENEMY_SPWAN_MAX = 1;//敵をスポーンさせる数（数字をいじれば変更も可能）
-	int WEED_SPAWN_MAX = 1;
+	int ENEMY_SPWAN_MAX = 4;//敵をスポーンさせる数（数字をいじれば変更も可能）
+	int WEED_SPAWN_MAX = 8;
 }
 
 void EnemyManager::Initialize()
